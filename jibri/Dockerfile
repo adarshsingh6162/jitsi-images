@@ -35,12 +35,10 @@ RUN \
 	&& chmod +x /usr/bin/chromedriver \
 	&& chromedriver --version
 
-RUN \
-        [ "$JITSI_RELEASE" = "testing" ] \
-        && apt-dpkg-wrap apt-get update \
-        && apt-dpkg-wrap apt-get install -y jitsi-upload-integrations \
-        && apt-cleanup \
-        || true
+RUN     apt-get update \
+        && apt-get install -y jitsi-upload-integrations \
+        && apt-cleanup
+	
 RUN     apt -y install pulseaudio-utils && \
 	mkdir -p /root/.config/pulse  && \
 	chown -R jibri:jibri /root
