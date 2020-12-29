@@ -6,7 +6,7 @@ ARG CHROMEDRIVER_MAJOR_RELEASE=latest
 
 RUN \
 	apt-get update \
-	&& apt-get install -y jibri pulseaudio socat dbus dbus-x11 consolekit\
+	&& apt-get install -y jibri pulseaudio socat dbus dbus-x11 \
 	&& apt-cleanup
 
 RUN \
